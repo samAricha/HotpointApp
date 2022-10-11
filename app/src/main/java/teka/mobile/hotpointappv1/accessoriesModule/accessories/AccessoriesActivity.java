@@ -26,7 +26,6 @@ import teka.mobile.hotpointappv1.accessoriesModule.accessories.models.Upload;
 //This Activity involves displaying the products from the database.
 public class AccessoriesActivity extends AppCompatActivity {
 
-    private DatabaseReference ProductsRef;
     private RecyclerView mRecyclerView;
     private ImageAdapter mImageAdapter;
 

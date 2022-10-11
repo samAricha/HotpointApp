@@ -79,9 +79,8 @@ class MainActivity : AppCompatActivity(), MovieListInterface {
     }
 
     private fun setupViewFragment(retroResponse: MovieModel) {
-
         moviesList = retroResponse.results
-        var discoverMoviesFragment: DiscoverMoviesFragment = DiscoverMoviesFragment()
+        val discoverMoviesFragment: DiscoverMoviesFragment = DiscoverMoviesFragment()
         supportFragmentManager.beginTransaction()
             .replace(fragmentContainer.id, discoverMoviesFragment)
             .commit()
