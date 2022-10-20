@@ -1,5 +1,7 @@
 package teka.mobile.hotpointappv1.loginModule
 
+import android.R
+import android.app.ActivityOptions
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
@@ -8,17 +10,16 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import teka.mobile.hotpointappv1.MainActivity
 import teka.mobile.hotpointappv1.databinding.ActivityLoginBinding
 import java.util.concurrent.TimeUnit
+
 
 class LoginActivity: AppCompatActivity() {
 
@@ -29,6 +30,8 @@ class LoginActivity: AppCompatActivity() {
     lateinit var btnGenOTP: Button
     lateinit var btnVerifyOTP: Button
     lateinit var storedVerificationId:String
+    lateinit var progressBar1:ProgressBar
+    lateinit var usableNum:String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,11 +39,9 @@ class LoginActivity: AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        //initialization
-        phone = binding.registerPhoneNumberInput
-        otp = binding.otp
-        btnGenOTP = binding.genOtp
-        btnVerifyOTP = binding.verityOtpBtn
+        phone = binding.editTextPhone
+        btnGenOTP = binding.loginButton
+        progressBar1 = binding.probar1
 
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
@@ -49,19 +50,8 @@ class LoginActivity: AppCompatActivity() {
             if (TextUtils.isEmpty(phone.text.toString())){
                 Toast.makeText(this@LoginActivity, "Enter Valid Phone No.", Toast.LENGTH_LONG).show()
             }else{
-                val number = phone.text.toString()
+                val number = phone.text.toString().substring(1)
                 sendVerificationCode(number)
-
-            }
-        })
-
-        btnVerifyOTP.setOnClickListener(View.OnClickListener {
-
-            if (TextUtils.isEmpty(otp.text.toString())){
-                Toast.makeText(this@LoginActivity, "Code invalid", Toast.LENGTH_LONG).show()
-            }else{
-                var inputCode = otp.text.toString()
-                sendVerificationCode(inputCode)
 
             }
         })
@@ -77,8 +67,11 @@ class LoginActivity: AppCompatActivity() {
     }
 
     private fun sendVerificationCode(phoneNumber:String) {
+        progressBar1.visibility = View.VISIBLE
+        btnGenOTP.visibility = View.INVISIBLE
+        usableNum = "+254$phoneNumber"
         val options = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber("+254$phoneNumber")       // Phone number to verify
+            .setPhoneNumber(usableNum)       // Phone number to verify
             .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
             .setActivity(this)                 // Activity (for callback binding)
             .setCallbacks(callbacks)          // OnVerificationStateChangedCallbacks
@@ -96,16 +89,19 @@ class LoginActivity: AppCompatActivity() {
             //     detect the incoming verification SMS and perform verification without
             //     user action.
             Log.d(TAG, "onVerificationCompleted:$credential")
-            val code = credential.smsCode
+            progressBar1.visibility = View.GONE
+            btnGenOTP.visibility = View.VISIBLE
+            /*val code = credential.smsCode
             if(code != null){
                 signInWithPhoneAuthCredential(code)
-            }
+            }*/
         }
 
         override fun onVerificationFailed(e: FirebaseException) {
             // This callback is invoked in an invalid request for verification is made,
             // for instance if the the phone number format is not valid.
             Log.w(TAG, "onVerificationFailed", e)
+            Toast.makeText(this@LoginActivity, e.message, Toast.LENGTH_SHORT).show()
 
             if (e is FirebaseAuthInvalidCredentialsException) {
                 // Invalid request
@@ -125,29 +121,19 @@ class LoginActivity: AppCompatActivity() {
             // now need to ask the user to enter the code and then construct a credential
             // by combining the code with a verification ID.
             Log.d(TAG, "onCodeSent:$verificationId")
+            Toast.makeText(this@LoginActivity, "code sent", Toast.LENGTH_SHORT).show()
 
-            // Save verification ID and resending token so we can use them later
-            storedVerificationId = verificationId
-            //resendToken = token
+            progressBar1.visibility = View.GONE
+            btnGenOTP.visibility = View.VISIBLE
+
+            val intent = Intent(applicationContext, VerificationActivity::class.java)
+           intent.putExtra("mobile", phone.text.toString().substring(1))
+            intent.putExtra("backendotp", verificationId)
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+
         }
     }
 
-    private fun signInWithPhoneAuthCredential(code: String) {
-            verifyCode(code)
-    }
-    private fun verifyCode(code:String) {
-        //code entered by user cross-referenced with that sent by firebase
-        var credential = PhoneAuthProvider.getCredential(storedVerificationId, code)
-        signinbyCredentials(credential)
-    }
 
-    private fun signinbyCredentials(credential: PhoneAuthCredential) {
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(OnCompleteListener { task ->
-                if (task.isSuccessful){
-                    Toast.makeText(this@LoginActivity, "Login Successfull", Toast.LENGTH_LONG).show()
-                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                }
-            })
-    }
 }

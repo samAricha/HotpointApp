@@ -12,14 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HotPointAppv1">
         <activity
+            android:name=".loginModule.VerificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".viewTier.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".loginModule.LoginActivity"
             android:exported="true"

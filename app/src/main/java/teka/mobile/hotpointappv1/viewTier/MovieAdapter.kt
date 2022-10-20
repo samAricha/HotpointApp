@@ -26,6 +26,7 @@ class MovieAdapter() : RecyclerView.Adapter<MovieAdapter.MyViewHolder>(){
         holder.bind(moviesList?.get(position)!!)
         Glide.with(holder.itemView.context)
             .load("https://image.tmdb.org/t/p/w500/" + moviesList!!.get(position).poster_path)
+            //.placeholder(R.drawable.ic_baseline_movie_24)
             .into((holder as MyViewHolder).movieImage)
     }
 

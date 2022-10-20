@@ -6,11 +6,17 @@
         <entry key="app/src/main/res/drawable-v24/buttons.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/buttons_file1.xml" value="0.117" />
         <entry key="app/src/main/res/drawable-v24/details_button_drawable.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_notes_24.xml" value="0.1285" />
         <entry key="app/src/main/res/drawable-v24/nav_header_bg.xml" value="0.117" />
         <entry key="app/src/main/res/drawable-v24/product_price_view.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/backgroundbox.xml" value="0.148" />
+        <entry key="app/src/main/res/drawable/button_background.xml" value="0.147" />
+        <entry key="app/src/main/res/layout/activity_accessories.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.13451086956521738" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_verification.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_accessories.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_discover_movies.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_hot_movies.xml" value="0.16576086956521738" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.13451086956521738" />
@@ -18,9 +24,13 @@
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.13451086956521738" />
         <entry key="app/src/main/res/layout/item_accessory.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_network_state.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/login.xml" value="0.109375" />
         <entry key="app/src/main/res/layout/movie_items.xml" value="0.16576086956521738" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.13451086956521738" />
+        <entry key="app/src/main/res/layout/register.xml" value="0.109375" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.125" />
+        <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.184375" />
+        <entry key="app/src/main/res/menu/custom_menu.xml" value="0.33" />
         <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.16614583333333333" />
       </map>
     </option>

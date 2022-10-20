@@ -43,7 +43,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         Glide.with(mContext)
                 .load(uploadCurrent.getmImgUrl())
                 .centerCrop()
-                .placeholder(R.drawable.product)
+                .placeholder(R.drawable.ic_shopping_cart_24)
                 .into(holder.imageView);
     }
 
