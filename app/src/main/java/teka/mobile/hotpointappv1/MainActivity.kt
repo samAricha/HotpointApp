@@ -67,9 +67,9 @@ class MainActivity : AppCompatActivity(), MovieListInterface {
             when(it.itemId){
                 R.id.home ->{
                     getData()
-                }R.id.profile ->{
-                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
-                }R.id.settings ->{
+                }/*R.id.profile ->{
+                    Toast.makeText(this, "Profile in Development", Toast.LENGTH_SHORT).show()
+                }*/R.id.settings ->{
                     setupAccessoriesFragment()
                 }else ->{
                     Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()

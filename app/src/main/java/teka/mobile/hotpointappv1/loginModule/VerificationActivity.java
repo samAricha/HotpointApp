@@ -116,9 +116,6 @@ public class VerificationActivity extends AppCompatActivity {
 
 
                 // movenumtonext();
-
-
-
             }
         });
 
@@ -272,5 +269,7 @@ public class VerificationActivity extends AppCompatActivity {
 
 
     }
+
+
 
 }

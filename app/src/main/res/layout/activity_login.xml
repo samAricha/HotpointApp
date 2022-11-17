@@ -54,18 +54,21 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputPhone"
-                style="@style/parent"
-                android:layout_marginTop="20dp">
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="phone"
+                app:endIconMode="clear_text">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editTextPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/modifiedEditText"
-                    android:hint="07..."
                     android:inputType="phone"
                     android:maxLines="1"
                     android:textSize="12sp" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView

@@ -13,7 +13,7 @@
     <LinearLayout
         android:id="@+id/content_container"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="150dp"
         android:orientation="vertical"
         android:weightSum="10">
 
@@ -44,10 +44,9 @@
                     android:src="@drawable/product" />
             </androidx.cardview.widget.CardView>
 
-            <View
+           <!-- <View
                 android:id="@+id/rectangle_6"
                 android:layout_width="64dp"
-
                 android:layout_height="42dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
@@ -55,9 +54,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="50dp"
                 android:layout_marginRight="50dp"
-                android:background="@drawable/product_price_view" />
+                android:background="@drawable/product_price_view" />-->
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/product_prices"
                 android:layout_width="53dp"
                 android:layout_height="27dp"
@@ -73,7 +72,7 @@
                 android:text="Price"
                 android:autoSizeTextType="uniform"
                 android:textColor="@android:color/black"
-                android:textSize="15dp" />
+                android:textSize="15dp" />-->
 
         </RelativeLayout>
 
@@ -92,7 +91,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.2" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/product_name"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -102,14 +101,14 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="20dp"/>-->
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.2" />
 
-            <Button
+            <!--<Button
                 android:id="@+id/product_details_send_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -118,7 +117,7 @@
                 android:background="@drawable/details_button_drawable"
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
-                />
+                />-->
         </LinearLayout>
 
     </LinearLayout>

@@ -4,10 +4,10 @@
     <item android:title="Home"
         android:id="@+id/home"
         android:icon="@drawable/ic_baseline_home_24"/>
-    <item android:title="Profile"
+   <!-- <item android:title="Profile"
         android:id="@+id/profile"
-        android:icon="@drawable/ic_person"/>
-    <item android:title="Settings"
+        android:icon="@drawable/ic_person"/>-->
+    <item android:title="Shop"
         android:id="@+id/settings"
-        android:icon="@drawable/ic_baseline_settings_24"/>
+        android:icon="@drawable/nav_cart"/>
 </menu>

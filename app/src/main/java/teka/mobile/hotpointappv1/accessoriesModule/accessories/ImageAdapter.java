@@ -37,7 +37,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
         Upload uploadCurrent = mUploads.get(position);
-        holder.textViewName.setText(uploadCurrent.getmName());
+        //holder.textViewName.setText(uploadCurrent.getmName());
         //Log.i("-----------name-------", uploadCurrent.getProductPhoto());
 
         Glide.with(mContext)
@@ -61,7 +61,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.product_image);
-            textViewName = itemView.findViewById(R.id.product_name);
+            //textViewName = itemView.findViewById(R.id.product_name);
         }
     }
 }

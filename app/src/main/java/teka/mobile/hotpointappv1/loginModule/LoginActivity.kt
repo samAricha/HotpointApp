@@ -20,7 +20,6 @@ import teka.mobile.hotpointappv1.MainActivity
 import teka.mobile.hotpointappv1.databinding.ActivityLoginBinding
 import java.util.concurrent.TimeUnit
 
-
 class LoginActivity: AppCompatActivity() {
 
     lateinit var binding: ActivityLoginBinding

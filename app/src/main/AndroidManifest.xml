@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/hp_logo3"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/hp_logo3_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HotPointAppv1">
         <activity
@@ -23,6 +23,7 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".loginModule.LoginActivity"
+            android:theme="@style/Theme.HotPointAppv1.NOActionBar"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
